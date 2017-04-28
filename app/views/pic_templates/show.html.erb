@@ -1,4 +1,4 @@
-<h1>Photo Details</h1>
+<h1>Photo details page</h1>
 
 <p>
   <%= @my_photo.caption %>
@@ -13,4 +13,4 @@
 
 <a class ="btn btn-secondary">Go Back</a>
 <a class ="btn btn-secondary">Edit</a>
-<a href="/delete_photo/<%= photo.id %>" class ="btn btn-secondary">Delete</a>
+<a href="/delete_photo/<%= @my_photo.id %>" class ="btn btn-secondary">Delete</a>
