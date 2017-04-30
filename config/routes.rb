@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   get("/photos/:the_id", { :controller => "pictures", :action => "show" })
 
   # UPDATE
-  get("/photos/:la_id/edit", { :controller => "pictures", :action => "edit_form" })
-  get("/update_photo/:le_id", { :controller => "pictures", :action => "update_row" })
+  get("/photos/:the_id/edit", { :controller => "pictures", :action => "edit_form" })
+  get("/update_photo/:the_id", { :controller => "pictures", :action => "update_row" })
 
   # DELETE
-  get("/delete_photo/:da_id", { :controller => "pictures", :action => "destroy_row" })
+  get("/delete_photo/:the_id", { :controller => "pictures", :action => "destroy_row" })
+
+  get("/", { :controller => "pictures", :action => "home" })
 end
