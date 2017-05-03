@@ -11,7 +11,8 @@ class PicturesController < ApplicationController
     @current_count = Photo.count
     #render("pic_templates/create_row.html.erb")
     @list_of_photos = Photo.all
-    render("pic_templates/index.html.erb")
+    #redirect_to("/photos/(#{:the_id})")
+    redirect_to("/photos")
     #redirect_to(/photos)
   end
 
@@ -36,11 +37,18 @@ class PicturesController < ApplicationController
   end
 
   def update_row
-    render("pic_templates/update_row.html.erb")
+    @my_photo = Photo.find(params["the_id"])
+    @my_photo.source =params["the_source"]
+    @my_photo.caption =params["the_caption"]
+    @my_photo.save
+    redirect_to("/photos/#{@my_photo.id}")
   end
 
   def destroy_row
     #redirect_to(/photos)
-    render("pic_templates/destroy_row.html.erb")
+    my_photo = Photo.find(params["the_id"])
+    my_photo.destroy
+    redirect_to("/photos")
+    #render("pic_templates/destroy_row.html.erb")
   end
 end
